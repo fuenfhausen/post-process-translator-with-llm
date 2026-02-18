@@ -8,11 +8,17 @@ dependencies = [
     "uvicorn[standard]>=0.34.0",
     "azure-identity>=1.19.0",
     "azure-ai-translation-text>=1.0.1",
+    "azure-ai-translation-document>=1.1.0",
+    "azure-storage-blob>=12.24.0",
     "openai>=1.60.0",
     "pydantic>=2.10.0",
     "pydantic-settings>=2.7.0",
     "httpx>=0.28.0",
     "structlog>=24.4.0",
+    "python-docx>=1.1.0",
+    "python-pptx>=1.0.0",
+    "openpyxl>=3.1.0",
+    "python-multipart>=0.0.18",
 ]
 
 [project.optional-dependencies]

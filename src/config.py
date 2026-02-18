@@ -26,6 +26,11 @@ class Settings(BaseSettings):
     azure_openai_deployment: str = "gpt-4o"
     azure_openai_api_version: str = "2024-12-01-preview"
 
+    # ── Azure Blob Storage (for document translation) ───────────────
+    azure_storage_account_url: str = ""
+    azure_storage_container_source: str = "translate-source"
+    azure_storage_container_target: str = "translate-target"
+
     # ── App ─────────────────────────────────────────────────────────
     log_level: str = "INFO"
 

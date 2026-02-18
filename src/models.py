@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 
 
 class TranslationRequest(BaseModel):
-    """Input payload for the translation pipeline."""
+    """Input payload for the text translation pipeline."""
 
     text: str = Field(..., min_length=1, max_length=50_000, description="Source text to translate")
     source_language: str = Field(..., min_length=2, max_length=10, description="BCP-47 source language code (e.g. 'en')")
@@ -20,7 +20,7 @@ class TranslationRequest(BaseModel):
 
 
 class TranslationResult(BaseModel):
-    """Output payload from the translation pipeline."""
+    """Output payload from the text translation pipeline."""
 
     source_text: str
     source_language: str
@@ -32,3 +32,14 @@ class TranslationResult(BaseModel):
         default=None,
         description="Brief LLM explanation of changes made during refinement",
     )
+
+
+class DocumentTranslationResult(BaseModel):
+    """Output metadata from the document translation pipeline."""
+
+    filename: str
+    source_language: str
+    target_language: str
+    was_refined: bool = Field(description="Whether LLM post-processing was applied")
+    output_filename: str = Field(description="Name of the translated output file")
+    message: str
